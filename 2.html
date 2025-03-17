@@ -1,29 +1,167 @@
 <html>
-  <head>
-    <tittle> pertemuan 2 HTML dasar</tittle>
-    </head>
-    <body>
-  <header><a href="#"> Home </a></header>
-  <main> hi
-  <br>
-  </main id="main" class="main">
-  <section> halo word </section>
-  <section id="paragraf">
-  <p>
-  <h1> pertemuan 2</h1>
-  <h2> HTML dasar </h2> 
-  </p>
-    <ol>
-      <li></li>
-      <li>2</li>
-    </ol>
-  </section>
-  <section id="table">
-  <h2>table</h2>
-  <table>
-  <tr><td>1 </td>2 </td></tr>
-  <tr><td>3 </td>4 </td></tr>
-  </table>
-      <footer>@2025</footer>
-      </boody>
+<head>
+    <title>Pertemuan 2 - HTML Dasar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            padding: 15px;
+        }
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        main {
+            background: white;
+            margin: 20px auto;
+            padding: 20px;
+            width: 50%;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        form {
+            text-align: left;
+            margin: auto;
+            width: 80%;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        input[type="submit"], button {
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover, button:hover {
+            background-color: #555;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="https://ipwija.ac.id/">Home</a>
+    </header>
+    
+    <main>
+        <p>Hi</p>
+        
+        <section>
+            <p>Halo world!</p>
+        </section>
+        
+        <section id="gambar">
+            <img src="https://i.pinimg.com/736x/af/14/4d/af144d25a02f25247cf669b8474ec81a.jpg" height="200" width="200" alt="Gambar contoh">
+        </section>
+        
+        <section>
+            <form>
+                <label>Username:</label>
+                <input type="text">
+                
+                <label>Password:</label>
+                <input type="password">
+                
+                <label>Warna:</label>
+                <input type="color">
+                
+                <label>Pilih File:</label>
+                <input type="file">
+                
+                <label>Pilih Opsi:</label>
+                <input type="checkbox"> Opsi 1
+                <input type="checkbox"> Opsi 2
+                
+                <label>Pilih Gender:</label>
+                <input type="radio" name="gender" value="male" id="male">
+                <label for="male">Laki-laki</label>
+                <input type="radio" name="gender" value="female" id="female">
+                <label for="female">Perempuan</label>
+                
+                <label>Pilih hobi:</label>
+                <input type="radio" name="hobi" value="memancing" id="memancing">
+                <label for="memancing">Memancing</label>
+                <input type="radio" name="hobi" value="lari" id="lari">
+                <label for="lari">Lari</label>
+                <input type="radio" name="hobi" value="" id="membaca">
+                <label for="membaca">Membaca</label>
+                
+                <select>
+                    <option>1</option>
+                    <option>2</option>
+                </select>
+                
+                <input type="submit" value="Cancel">
+                <button>Login</button>
+            </form>
+        </section>
+        
+        <section id="paragraf">
+            <h1>Pertemuan 2</h1>
+            <h2>Pemrograman Web</h2>
+            <p>Pertemuan dasar HTML membuat paragraf sederhana dengan huruf <i>miring</i>, <b>tebal</b>.</p>
+            
+            <ul>
+                <li>1</li>
+                <li>2</li>
+            </ul>
+            
+            <ol>
+                <li>Satu</li>
+                <li>Dua</li>
+            </ol>
+        </section>
+        
+        <section id="Table">
+            <h2>Table</h2>
+            <table border="1" style="width:100%; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th>Jan</th>
+                        <th>Feb</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>4</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    
+    <footer>@2025</footer>
+</body>
 </html>
