@@ -1,159 +1,57 @@
 <html>
 <head>
-  <title>Pertemuan 3 Styling dengan CSS</title>
-  <style>
+  <title> Pertemuan 3 Styling dengan CSS </title>
+<style>
+input{
+  width:80%;
+  background:purple;
+}  
+#username{ background:green;}
+.bg-grey{ background:grey;}
   
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+@media screen and (max-width: 700px) {
+[class*='col-'] { width: 50%; }
+}
+@media screen and (max-width: 450px) {
+[class*='col-'] { width: 100%; }
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #f9f9f9; /* Very light background color for the body */
-      color: #333;
-    }
 
-    header {
-      background-color: #f2f2f2; /* Light grey background for the header */
-      color: #333; /* Dark text color for better contrast */
-      padding: 10px;
-      text-align: center;
-    }
+</style>
 
-    header a {
-      color: #333; /* Dark color for links */
-      text-decoration: none;
-    }
-
-    main {
-      padding: 20px;
-      background-color: #ffffff; /* White background for the main content */
-      margin-bottom: 20px;
-      border-radius: 8px;
-    }
-
-    section {
-      margin-bottom: 20px;
-      background-color: #ffffff; /* White background for sections */
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    }
-
-    #gambar img {
-      display: block;
-      margin: 0 auto;
-      border-radius: 10px; /* Rounded corners for the image */
-    }
-
-  
-    input {
-      width: 80%;
-      padding: 8px;
-      margin: 5px 0 15px;
-      background: #f0f0f0; /* Light grey background for inputs */
-      color: #333;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    #username {
-      background: #c1e7d6; /* Lighter green background for username input */
-    }
-
-    .bg-grey {
-      background: #e2e2e2; /* Lighter grey background for other inputs */
-    }
-
-    select {
-      width: 84%;
-      padding: 8px;
-      margin-bottom: 15px;
-      background: #f0f0f0;
-      color: #333;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    input[type="submit"], button {
-      padding: 10px 20px;
-      background-color: #66b3ff; /* Light blue background for buttons */
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    footer {
-      background-color: #f2f2f2; /* Light grey background for the footer */
-      color: #333;
-      padding: 10px;
-      text-align: center;
-    }
-
-   
-    .col- {
-      width: 48%;
-      margin: 1%;
-      float: left;
-    }
-
-    @media screen and (max-width: 700px) {
-      .col- {
-        width: 50%;
-      }
-    }
-
-    @media screen and (max-width: 450px) {
-      .col- {
-        width: 100%;
-      }
-    }
-  </style>
 </head>
-<body>
+  <body>
+<header><a href="ipwija.ac.id"> Home </a></header>
+<main> hi 
+<br/> 
+</main id="main" class="main">    
+<section>Halo Word</section>
 
-<header><a href="ipwija.ac.id">Home</a></header>
+    <section id="gambar">
+    <img src="https://www.educationcorner.com/wp-content/uploads/education-important-purpose.png" height="200" width="200">  
+    </section>
 
-<main>
-  <p>Hi</p>
-</main>
+    <section id="form" class="col-">
+      <form>
+<label>Username:</label><input id="username" type="text">
+<label>Password:</label><input class="bg-grey" type="password">
+<label>Warna:</label><input class="bg-grey" type="color">
+<label>Dropdown:</label>
+        <select>
+          <option>1</option>
+          <option>2</option>
+        </select>
+<input type="submit" value="cancel">
+        <button> login</button>
+      </form>
+    </section>
 
-<section>
-  <p>Halo Word</p>
-</section>
-
-<section id="gambar">
-  <img src="https://www.educationcorner.com/wp-content/uploads/education-important-purpose.png" height="200" width="200">
-</section>
-
-<section id="form" class="col-">
-  <form>
-    <label for="username">Username:</label>
-    <input id="username" type="text">
-    <label for="password">Password:</label>
-    <input id="password" class="bg-grey" type="password">
-    <label for="color">Warna:</label>
-    <input id="color" class="bg-grey" type="color">
-    <label for="dropdown">Dropdown:</label>
-    <select id="dropdown">
-      <option>1</option>
-      <option>2</option>
-    </select>
-    <input type="submit" value="Cancel">
-    <button type="button">Login</button>
-  </form>
-</section>
-
-<section id="paragraf" class="col-">
-  <h1>Pertemuan 2</h1>
-  <h2>HTML Dasar</h2>
-  <p>
-    Pertemuan 2, dasar HTML membuat paragraf <br/> sederhana dengan huruf <i>miring</i>, <b>Tebal</b>
-  </p>
+    <section id="paragraf" class="col-">
+<p>
+<h1> Pertemuan 2</h1>  
+<h2> HTML dasar </h2>
+pertemuan 2, dasar HTML membuat paragraf <br/> sederhana dengan huruf <i>miring </i>,<b>Tebal</b>
+</p>
   <ul>
     <li>1</li>
     <li>2</li>
@@ -163,21 +61,20 @@
     <li>dua</li>
   </ol>
 </section>
-
 <section id="table" class="col-">
-  <h2>Table</h2>
-  <table border="1">
-    <thead>
-      <tr><th>Jan</th><th>Feb</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>1</td><td>2</td></tr>
-      <tr><td>3</td><td>4</td></tr>
-    </tbody>
-  </table>
+<h2>table</h2>
+<table border="1">
+<thead>
+  <tr><th>jan </th><th>feb </th></tr>
+</thead>  
+<tbody>
+<tr><td>1 </td><td>2 </td></tr>
+<tr><td>3 </td><td>4 </td></tr>
+</tbody>
+</table>
 </section>
 
-<footer>@2025</footer>
-
-</body>
+        
+<footer>@2025</footer>    
+  </body>
 </html>
