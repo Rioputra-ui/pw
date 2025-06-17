@@ -49,8 +49,8 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 
 
-const SUPABASE_URL = 'https://zmgbrbkzzzrxmkpfhmrg.supabase.co'
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InptZ2JyYmt6enpyeG1rcGZobXJnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxMTgzMjEsImV4cCI6MjA2MjY5NDMyMX0.ajHByYgE0jRHqdfGqm8WIGV-aiibG-tVhnewimbC3gA'
+const SUPABASE_URL = 'https://hmwtsbgdizxkkhcwaury.supabase.co'
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhtd3RzYmdkaXp4a2toY3dhdXJ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk1MjcyMzksImV4cCI6MjA2NTEwMzIzOX0.BSq6ScSU9zQ8UywyM5Z3RrSvcYKzpGmxUjA_xKYsAVY'
 
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
@@ -119,11 +119,11 @@ async function saveData(e) {
 
   if (id) {
     // Update
-    const { error } = await supabase.from('Web').update({ Judul, Isi }).eq('id', id)
+    const { error } = await supabase.from('web').update({ Judul, Isi }).eq('id', id)
     if (error) return alert('Error update: ' + error.message)
   } else {
     // Insert
-    const { error } = await supabase.from('Web').insert([{ Judul, Isi }])
+    const { error } = await supabase.from('web').insert([{ Judul, Isi }])
     if (error) return alert('Error insert: ' + error.message)
   }
 
@@ -137,7 +137,7 @@ async function deleteData() {
   if (!id) return
   if (!confirm('Yakin ingin menghapus data ini?')) return
 
-  const { error } = await supabase.from('Web').delete().eq('id', id)
+  const { error } = await supabase.from('web').delete().eq('id', id)
   if (error) return alert('Error hapus: ' + error.message)
 
   hideForm()
