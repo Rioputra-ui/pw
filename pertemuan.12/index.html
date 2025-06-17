@@ -1,1 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rio Putra</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background-color: #f9fafb;
+      color: #333;
+    }
+
+    .profile-container {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    .header-bg {
+      background: linear-gradient(to right, #a9f14b, #f8830f);
+      height: 180px;
+      border-radius: 0 0 12px 12px;
+    }
+
+    .profile-photo-wrapper {
+      margin-top: -80px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .profile-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 5px solid white;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .header-text {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .header-text h1 {
+      margin: 0.2rem 0;
+      font-size: 2rem;
+      color: #111827;
+    }
+
+    .header-text p {
+      margin: 0.3rem 0;
+      color: #6b7280;
+    }
+
+    .header-text a {
+      color: #000000;
+      text-decoration: none;
+    }
+
+    .header-text a:hover {
+      text-decoration: underline;
+    }
+
+    .action-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .action-buttons button {
+      padding: 0.5rem 1rem;
+      border: none;
+      background-color: #d7418c;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .action-buttons button:hover {
+      background-color: #2563eb;
+    }
+
+    .content-card {
+      background-color: white;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .content-card h2, .content-card h3 {
+      color: #111827;
+      margin-bottom: 0.5rem;
+    }
+
+    .content-card p, .content-card li {
+      color: #4b5563;
+      line-height: 1.5;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-container">
+    <div class="header-bg"></div>
+
+    <div class="profile-photo-wrapper">
+      <img src="https://m.media-amazon.com/images/M/MV5BNTk3MDA1ZjAtNTRhYS00YzNiLTgwOGEtYWRmYTQ3NjA0NTAwXkEyXkFqcGc@._V1_.jpg" alt="Photo of Rio Putra" class="profile-photo" />
+    </div>
+
+    <div class="header-text">
+      <h1>Rio Putra</h1>
+      <p class="subtitle">He/Him • Web Developer</p>
+      <p>Jakarta, Indonesia • <a href="https://Rio.putra.com">Rio.putra.com</a></p>
+      <p><strong>Rio wibu bau bawang</strong> — Universitas Ipwija</p>
+    </div>
+
+    <div class="action-buttons">
+      <button>Open to work</button>
+      <button>Add profile section</button>
+      <button>Enhance profile</button>
+    </div>
+
+    <div id="content"></div>
+
+    <div class="content-card">
+      <h3>Sosial Media</h3>
+      <ul>
+        <li><strong>LinkedIn:</strong> <a href="http://linkedin.com/in/Rioputra">linkedin.com/in/sismadi</a></li>
+        <li><strong>Credly:</strong> <a href="https://www.credly.com/users/Rio-putra ">credly.com/users/wawan-sismadi</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+    const SUPABASE_URL = 'https://hmwtsbgdizxkkhcwaury.supabase.co'
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhtd3RzYmdkaXp4a2toY3dhdXJ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk1MjcyMzksImV4cCI6MjA2NTEwMzIzOX0.BSq6ScSU9zQ8UywyM5Z3RrSvcYKzpGmxUjA_xKYsAVY'
+
+    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+    const content = document.getElementById('content')
+
+    async function loadData() {
+      content.innerHTML = '<div class="content-card">Loading data...</div>'
+      const { data, error } = await supabase.from('web').select('*').order('id')
+
+      if (error) {
+        content.innerHTML = `<div class="content-card">❌ Error: ${error.message}</div>`
+        return
+      }
+
+      if (!data.length) {
+        content.innerHTML = `<div class="content-card">No data available.</div>`
+        return
+      }
+
+      content.innerHTML = ''
+      data.forEach(row => {
+        content.innerHTML += `
+          <div class="content-card">
+            <h2>${row.judul}</h2>
+            <p>${row.isi}</p>
+          </div>
+        `
+      })
+    }
+
+    window.addEventListener('DOMContentLoaded', loadData)
+  </script>
+</body>
+</html>
